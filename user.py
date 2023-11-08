@@ -1,8 +1,15 @@
 # unica utilidade desse arq e armazenar a class user
+from dataclasses import dataclass
 
-class User: 
-    def __init__(self, name, email, passW):
-        self.name = name
-        self.email = email
-        self.passW = passW
+@dataclass
+class UserClient:
+    name: str=''
+    email: str=''
+    passW: str=''
 
+@dataclass
+class UserAdm:
+    name: str=''
+    email: str=''
+    passW: str=''
+    admKey: int=0

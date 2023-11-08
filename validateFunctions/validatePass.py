@@ -1,10 +1,11 @@
 # senha deve conter no minimo 8 caracteres
 # senha deve conter no maximo 32 caracteres
+import re
 
 def validPass(passW):
-    if len(passW) > 7 and len(passW) < 33:
-        return True
-    else:
-        return False
+    regex = '^[a-zA-Z0-9.<>;:/?\[\]\\+=\-_*&%$#@!\^]{8,64}$'
+    return re.match(regex, passW) is not None
     
+# test
+print(validPass('matsssssssssssssssssssssssssssssssssssssssssssssss'))
 

@@ -5,6 +5,7 @@ import validateFunctions.validateName as validateName
 import validateFunctions.validateEmail as validateEmail
 import validateFunctions.validatePass as validatePass
 import errorsMsg as error
+import user
 
 usrDados = userDados.userDados()
 
@@ -15,6 +16,7 @@ validPass = validatePass(usrDados[2])
 
 if validName and validEmail and validPass:
     # caso os dados sejam todos validos, registrar user no banco de dados
+    # verificar se o user ja existe, caso sim encaminha-lo para seu painel
     ...
 else:
     if validName != True:
