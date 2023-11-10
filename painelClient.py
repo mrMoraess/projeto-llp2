@@ -1,0 +1,1 @@
+# esse modulo vai conter todas as funcionalidades disponiveis para o client

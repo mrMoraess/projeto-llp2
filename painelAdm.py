@@ -1,0 +1,1 @@
+# ja aqui vai estar todas as funcionalidades de administracao disponiveis no sistema

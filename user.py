@@ -6,6 +6,10 @@ class UserClient:
     name: str=''
     email: str=''
     passW: str=''
+    tickets: list=[] # nessa lista vai ficar salvo os tickets que o user possui
+
+# tickets example
+# myList = [[qtd, filme, horario], [2, 'Interestelar 2', '20:30']]
 
 @dataclass
 class UserAdm:

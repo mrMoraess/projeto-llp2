@@ -9,24 +9,28 @@ import validateFunctions.validatePass as validPass
 import errorsMsg as error
 import user 
 
-usrDados = userDados.userDados()
+# a ideia e que essa funcao repita ate que o usuario digite dados validos para que o login seja efetuado
+def login():
+    usrDados = userDados.userDados()
 
-# functions de validacao
+    # functions de validacao
 
-validatedName = validName(usrDados[0])
-validatedEmail = validEmail(usrDados[1])
-validatedPass = validPass(usrDados[2])
+    validatedName = validName(usrDados[0])
+    validatedEmail = validEmail(usrDados[1])
+    validatedPass = validPass(usrDados[2])
 
-# bloco para verificar se tudo esta correto
-if validatedName and validatedEmail and validatedPass:
-    # verifico se o user existe
-    # se existe envio ele para o painel
-    ...
-else:
-    if validatedName is not True:
-        print(error('Nome inválido.'))
-    elif validatedEmail is not True:
-        print(error('Email inválido.'))
-    elif validatedPass is not True:
-        print(error('Senha inválida.'))
-    
+    # bloco para verificar se tudo esta correto
+    if validatedName and validatedEmail and validatedPass:
+        # verifico se o user existe
+        # se existe envio ele para o painel
+        return True
+    else:
+        if validatedName is not True:
+            print(error('Nome inválido.'))
+            return login()
+        elif validatedEmail is not True:
+            print(error('Email inválido.'))
+            return login()
+        elif validatedPass is not True:
+            print(error('Senha inválida.'))
+            return login()
