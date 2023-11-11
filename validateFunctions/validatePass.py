@@ -7,5 +7,4 @@ def validPass(passW):
     return re.match(regex, passW) is not None
     
 # test
-print(validPass('matsssssssssssssssssssssssssssssssssssssssssssssss'))
 

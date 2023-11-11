@@ -10,8 +10,3 @@ def validName(name):
         return False
 
 
-# test
-print(validName("Matheus Rodrigu3s")) 
-
-print(re.findall("^[a-zA-Z]{3,}$", "Matheus"))
-print(re.findall("^[a-zA-Z0-9._+=%$#]+[@][a-zA-Z0-9]+[.][a-z]+$", "matheus@gmail.com"))

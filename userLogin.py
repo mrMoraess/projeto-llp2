@@ -8,6 +8,7 @@ import validateFunctions.validateEmail as validEmail
 import validateFunctions.validatePass as validPass
 import errorsMsg as error
 import user 
+import pickle
 
 # a ideia e que essa funcao repita ate que o usuario digite dados validos para que o login seja efetuado
 def login():
@@ -15,22 +16,25 @@ def login():
 
     # functions de validacao
 
-    validatedName = validName(usrDados[0])
-    validatedEmail = validEmail(usrDados[1])
-    validatedPass = validPass(usrDados[2])
+    validatedName = validName.validName(usrDados[0])
+    validatedEmail = validEmail.validEmail(usrDados[1])
+    validatedPass = validPass.validPass(usrDados[2])
 
     # bloco para verificar se tudo esta correto
     if validatedName and validatedEmail and validatedPass:
         # verifico se o user existe
         # se existe envio ele para o painel
-        return True
+
+
+
+        return True # deve retornar um array contendo True e o decorador
     else:
         if validatedName is not True:
-            print(error('Nome inválido.'))
+            print(error.createNewError('Nome inválido.'))
             return login()
         elif validatedEmail is not True:
-            print(error('Email inválido.'))
+            print(error.createNewError('Email inválido.'))
             return login()
         elif validatedPass is not True:
-            print(error('Senha inválida.'))
+            print(error.createNewError('Senha inválida.'))
             return login()
