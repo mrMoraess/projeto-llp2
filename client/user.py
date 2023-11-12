@@ -10,10 +10,3 @@ class UserClient:
 
 # tickets example
 # myList = [[qtd, filme, horario], [2, 'Interestelar 2', '20:30']]
-
-@dataclass
-class UserAdm:
-    name: str=''
-    email: str=''
-    passW: str=''
-    admKey: int=0

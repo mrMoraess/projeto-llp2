@@ -9,10 +9,13 @@ import validateFunctions.validatePass as validPass
 import errorsMsg as error
 import user 
 import pickle
+import painelClient
 
 # a ideia e que essa funcao repita ate que o usuario digite dados validos para que o login seja efetuado
 def login():
-    usrDados = userDados.userDados()
+    # possibilidade do adm logar
+    
+    usrDados = userDados.userDados(2)
 
     # functions de validacao
 
@@ -25,9 +28,30 @@ def login():
         # verifico se o user existe
         # se existe envio ele para o painel
 
-
-
-        return True # deve retornar um array contendo True e o decorador
+        try:
+            with open('dadosClient.pickle', 'wb') as file:
+                dados = pickle.load(file)
+        except:
+            dados = []
+        
+        flag = False
+        index = 0
+        for i in range(len(dados)):
+            if dados[i].name == usrDados[0] and usrDados[1] == dados[i].email and usrDados[2] == dados[i].passW:
+                print('\n Login efetuado com sucesso. \n')
+                flag = True
+                index = i
+                break
+        
+        newUser = user.UserClient(usrDados[0], usrDados[1], usrDados[2])
+        if flag:
+            painelClient.painel(dados[index])
+            return False
+        else:
+            dados.append(newUser)
+            print('\n Usuário inexistente ou inválido. Você será redirecionado para o painel inicial, faça seu cadastro. \n')
+            return False
+        
     else:
         if validatedName is not True:
             print(error.createNewError('Nome inválido.'))

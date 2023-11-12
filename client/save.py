@@ -4,23 +4,13 @@
 import pickle
 
 def save(userDados): # vou receber os dados do user
-    if hasattr(userDados, 'admKey'):
-        with open('dadosAdm.txt', 'rb') as file:
-            dados = pickle.load(file)
+    with open('dadosClient.txt', 'rb') as file:
+        dados = pickle.load(file)
 
-        dados += userDados
+    dados += userDados
 
-        with open('dadosAdm.txt', 'r+b') as file:
-            pickle.dumps(dados, file)
-
-    else:
-        with open('dadosClient.txt', 'rb') as file:
-            dados = pickle.load(file)
-
-        dados += userDados
-
-        with open('dadosClient.txt', 'r+b') as file:
-            pickle.dumps(dados, file)
+    with open('dadosClient.txt', 'r+b') as file:
+        pickle.dumps(dados, file)
 
 # test
 # while True:
