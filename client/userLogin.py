@@ -29,7 +29,7 @@ def login():
         # se existe envio ele para o painel
 
         try:
-            with open('dadosClient.pickle', 'wb') as file:
+            with open('dadosClient.pickle', 'rb') as file:
                 dados = pickle.load(file)
         except:
             dados = []
@@ -43,12 +43,13 @@ def login():
                 index = i
                 break
         
+        print(dados)
+        
         newUser = user.UserClient(usrDados[0], usrDados[1], usrDados[2])
         if flag:
             painelClient.painel(dados[index])
             return False
         else:
-            dados.append(newUser)
             print('\n Usuário inexistente ou inválido. Você será redirecionado para o painel inicial, faça seu cadastro. \n')
             return False
         

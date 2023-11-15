@@ -24,7 +24,7 @@ def regist():
         # verificar se o user ja existe, caso sim encaminha-lo para seu painel
 
         try:
-            with open('dadosClient.pickle', 'wb') as file:
+            with open('dadosClient.pickle', 'rb') as file:
                 dados = pickle.load(file)
         except:
             dados = []
@@ -42,12 +42,13 @@ def regist():
         
         newUser = user.UserClient(usrDados[0], usrDados[1], usrDados[2])
         if flag:
+            print(f'Usuário {newUser.name} já existe, será redirecionado para o seu respectivo painel. \n')
             painelClient.painel(dados[index])
             return False
         else:
             dados.append(newUser)
             print('\n Usuário registrado com sucesso. \n')
-            with open('dadosClient.pickle', 'wb') as file:
+            with open('dadosClient.pickle', 'r+b') as file:
                 pickle.dump(dados, file)
 
         print(dados)

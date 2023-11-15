@@ -1,5 +1,6 @@
 # esse modulo serve para retornar erros personalizados para o usuario
 
 def createNewError(msg):
-    erro = '\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n -> Erro: f{msg} \n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+    erro = f'\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n -> Erro: {msg} \n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
     return erro
+
