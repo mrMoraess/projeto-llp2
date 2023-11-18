@@ -7,7 +7,6 @@ import validateFunctions.validateName as validName
 import validateFunctions.validateEmail as validEmail
 import validateFunctions.validatePass as validPass
 import errorsMsg as error
-import user 
 import pickle
 import painelClient
 
@@ -45,7 +44,6 @@ def login():
         
         print(dados)
         
-        newUser = user.UserClient(usrDados[0], usrDados[1], usrDados[2])
         if flag:
             painelClient.painel(dados[index])
             return False

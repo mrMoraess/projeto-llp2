@@ -6,4 +6,4 @@ from dataclasses import dataclass
 @dataclass
 class Salas:
     salaNum: int=0
-    programacao: list=[]
+    programacao: list=''
