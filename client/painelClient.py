@@ -21,9 +21,7 @@ def painel(user):
     print(f'\n Bem vindo {user.name}!\n')
     print(f'Seus tickets: \n')
 
-    # vou mostrar todos os tickets que o client possui
-    for i in range(len(user.tickets)):
-        print(f'   - {user.tickets[i]}') # tickets vai ser uma lista contendo nome do filme, sala e horario
+    print(f'    - {user.tickets}')
     
     print('\n >>>> Opções de Filmes <<<< \n')
 
@@ -60,11 +58,12 @@ def painel(user):
             except:
                 salas = []
 
-            print(filmeOp)
-            print(salas[salaN].programacao)
-            if filmeOp in salas[salaN].programacao:
+            if filmeOp in salas[salaN - 1].programacao:
                 qtd = int(input('Quantidade de tickets: '))
-                user.tickets += f' [{filmeOp}, {qtd}]'
+                user.tickets += f' [Filme: {filmeOp}, Quantidade: {qtd}]'
+            else:
+                print('Filme ou sala não encontrado')
+                continue
             
             with open('dadosClient.pickle', 'rb') as file:
                 clients = pickle.load(file)
@@ -75,7 +74,8 @@ def painel(user):
                     index = i
             
             # clients.pop(i)
-            clients[i] = user
+            print(user.tickets)
+            clients[index].tickets = user.tickets
             with open('dadosClient.pickle', 'r+b') as file:
                 pickle.dump(clients, file)
             print('Compra do ticket efetuada com sucesso!')
